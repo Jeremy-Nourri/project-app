@@ -12,13 +12,13 @@ public class User {
     private LocalDate createdAt;
     private LocalDate updatedAt;
 
-    public User(String firstName, String lastName, String email, String password, PositionEnum positionEnum, LocalDate createdAt) {
+    public User(String firstName, String lastName, String email, String password, PositionEnum positionEnum) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.password = password;
         this.positionEnum = positionEnum;
-        this.createdAt = createdAt;
+        this.createdAt = LocalDate.now();
     }
 
     public User(Long id, String firstName, String lastName, String email, String password, PositionEnum positionEnum, LocalDate createdAt, LocalDate updatedAt) {
