@@ -1,6 +1,6 @@
 package org.example.serverappproject.application.controller.user;
 
-import org.example.serverappproject.application.service_app.CreateUserApplicationService;
+import org.example.serverappproject.application.service_app.user.CreateUserApplicationService;
 import org.example.serverappproject.application.dto.user.UserRequestDto;
 import org.example.serverappproject.application.dto.user.UserResponseDto;
 import org.springframework.beans.factory.annotation.Autowired;

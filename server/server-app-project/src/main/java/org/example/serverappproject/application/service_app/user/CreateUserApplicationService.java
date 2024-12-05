@@ -1,4 +1,4 @@
-package org.example.serverappproject.application.service_app;
+package org.example.serverappproject.application.service_app.user;
 
 import org.example.serverappproject.application.dto.user.UserRequestDto;
 import org.example.serverappproject.application.dto.user.UserResponseDto;

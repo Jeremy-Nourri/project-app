@@ -1,4 +1,4 @@
-package org.example.serverappproject.domain.service;
+package org.example.serverappproject.domain.service.user;
 
 import org.example.serverappproject.domain.exception.user.EmailExistsException;
 import org.example.serverappproject.domain.exception.user.InvalidEmailFormatException;
@@ -51,7 +51,8 @@ public class CreateUserService implements CreateUserUseCase {
         try {
             PositionEnum.valueOf(positionEnum);
         } catch (IllegalArgumentException e) {
-            throw new InvalidPositionException();
+            throw new InvalidPositionException("Position '" + positionEnum + "' is invalid.");
+
         }
     }
 }

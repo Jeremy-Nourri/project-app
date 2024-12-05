@@ -1,7 +1,7 @@
 package org.example.serverappproject.application.config;
 
 import org.example.serverappproject.domain.port.inbound.user.CreateUserUseCase;
-import org.example.serverappproject.domain.service.CreateUserService;
+import org.example.serverappproject.domain.service.user.CreateUserService;
 import org.example.serverappproject.domain.port.outbound.user.CreateUserPersistencePort;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

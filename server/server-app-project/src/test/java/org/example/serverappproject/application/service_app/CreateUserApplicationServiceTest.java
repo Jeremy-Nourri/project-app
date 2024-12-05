@@ -2,6 +2,7 @@ package org.example.serverappproject.application.service_app;
 
 import org.example.serverappproject.application.dto.user.UserRequestDto;
 import org.example.serverappproject.application.dto.user.UserResponseDto;
+import org.example.serverappproject.application.service_app.user.CreateUserApplicationService;
 import org.example.serverappproject.domain.model.PositionEnum;
 import org.example.serverappproject.domain.model.User;
 import org.example.serverappproject.domain.port.inbound.user.CreateUserUseCase;
