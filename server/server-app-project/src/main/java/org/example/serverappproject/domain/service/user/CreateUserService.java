@@ -8,6 +8,7 @@ import org.example.serverappproject.domain.model.PositionEnum;
 import org.example.serverappproject.domain.model.User;
 import org.example.serverappproject.domain.port.inbound.user.CreateUserUseCase;
 import org.example.serverappproject.domain.port.outbound.user.CreateUserPersistencePort;
+import org.example.serverappproject.shared.utils.ValidationUtils;
 
 public class CreateUserService implements CreateUserUseCase {
 
@@ -19,7 +20,9 @@ public class CreateUserService implements CreateUserUseCase {
 
     @Override
     public User createUser(String firstName, String lastName, String email, String password, String positionEnum) {
-        validateInputs(firstName, lastName, email, password, positionEnum);
+
+        ValidationUtils.validateEmail(email);
+        validateInputs(firstName, lastName, password, positionEnum);
 
         if(createUserPersistencePort.userExistsByEmail(email)){
             throw new EmailExistsException();
@@ -35,15 +38,12 @@ public class CreateUserService implements CreateUserUseCase {
         return createUserPersistencePort.save(user);
     }
 
-    private void validateInputs(String firstName, String lastName, String email, String password, String positionEnum) {
+    private void validateInputs(String firstName, String lastName, String password, String positionEnum) {
         if (firstName == null || firstName.isEmpty()) {
             throw new InvalidUserInputException("First name cannot be empty.");
         }
         if (lastName == null || lastName.isEmpty()) {
             throw new InvalidUserInputException("Last name cannot be empty.");
-        }
-        if (email == null || !email.contains("@")) {
-            throw new InvalidEmailFormatException();
         }
         if (password == null || password.length() < 6) {
             throw new InvalidUserInputException("Password must be at least 6 characters.");

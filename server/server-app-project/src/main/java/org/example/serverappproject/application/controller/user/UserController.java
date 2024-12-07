@@ -1,5 +1,6 @@
 package org.example.serverappproject.application.controller.user;
 
+import jakarta.validation.Valid;
 import org.example.serverappproject.application.service_app.user.CreateUserApplicationService;
 import org.example.serverappproject.application.dto.user.UserRequestDto;
 import org.example.serverappproject.application.dto.user.UserResponseDto;
@@ -20,7 +21,7 @@ public class UserController {
     }
 
     @PostMapping
-    public ResponseEntity<UserResponseDto> createUser(@RequestBody UserRequestDto userRequestDto) {
+    public ResponseEntity<UserResponseDto> createUser(@Valid @RequestBody UserRequestDto userRequestDto) {
         try {
             UserResponseDto userResponseDto = createUserApplicationService.createUser(userRequestDto);
             return new ResponseEntity<>(userResponseDto, HttpStatus.CREATED);
